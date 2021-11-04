@@ -3,7 +3,7 @@
   "version": "0.0.3",
   "description": "Script to extract missing or duplicate i18n keys in a project",
   "bin": {
-    "extract-i18n": "bin/extract-i18n.js"
+    "extract-i18n": "./bin/extract-i18n.js"
   },
   "source": "./src/extract-i18n.ts",
   "main": "./dist/extract-i18n.js",
