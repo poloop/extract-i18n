@@ -1,10 +1,19 @@
 #!/usr/bin/env node
 /* eslint-disable */
-
  
 const { program } = require('commander')
-const term = require( 'terminal-kit' ).terminal
-const { createI18nReport, ReportActions } = require('../dist/extract-i18n')
+const termkit = require('terminal-kit')
+const term = termkit.terminal
+const { createI18nReport, ReportActions } = require('../dist/extract-i18n.umd')
+
+const tableOptions = (color) => ({
+    hasBorder: true,
+    contentHasMarkup: true,
+    borderAttr: { color: 'green' },
+    textAttr: { bgColor: 'default' },
+    firstRowTextAttr: { bgColor: color },
+    fit: true,
+})
  
 const missingKeys = (languageFiles) => {
   console.log('🌐 Extract i18n: Get missing keys in your locales')
@@ -13,18 +22,13 @@ const missingKeys = (languageFiles) => {
 
   const header = ['LANG', 'FILENAME', 'KEY']
 
-  term.table([
-    header,
+  term.createInlineElement(termkit.TextTable, {          // <-- how is this
+    cellContents: [
+      header,
       ...report.missingKeys.map(({lang, fileName, key}) => ([lang, fileName, key]))
-    ], {
-      hasBorder: true,
-      contentHasMarkup: true,
-      borderAttr: { color: 'green' },
-      textAttr: { bgColor: 'default' },
-      firstRowTextAttr: { bgColor: 'red' },
-      fit: true
-    }
-  )
+    ],
+    ...tableOptions('red'),
+  })
 }
 
 const duplicateKeys = (languageFiles) => {
@@ -34,18 +38,13 @@ const duplicateKeys = (languageFiles) => {
 
   const header = ['CONTENT', 'LANG', 'FILENAMES', 'KEYS']
 
-  term.table([
-    header,
+  term.createInlineElement(termkit.TextTable, {          // <-- how is this
+    cellContents: [
+      header,
       ...report.duplicateKeys.map(({content, lang, fileNames, keys}) => ([content, lang, fileNames.join('\n'), keys.join('\n')]))
-    ], {
-      hasBorder: true,
-      contentHasMarkup: true,
-      borderAttr: { color: 'green' },
-      textAttr: { bgColor: 'default' },
-      firstRowTextAttr: { bgColor: 'blue' },
-      fit: true 
-    }
-  )
+    ],
+    ...tableOptions('blue'),
+  })
 }
 
 

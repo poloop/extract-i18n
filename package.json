@@ -1,6 +1,6 @@
 {
   "name": "extract-i18n",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Script to extract missing or duplicate i18n keys in a project",
   "bin": {
     "extract-i18n": "bin/extract-i18n.js"
@@ -11,7 +11,7 @@
   "exports": "./dist/extract-i18n.modern.js",
   "scripts": {
     "build": "rm -fr ./dist && microbundle --target node -f umd,modern",
-    "dev": "microbundle watch --target node",
+    "dev": "microbundle watch --target node -f umd,modern",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
