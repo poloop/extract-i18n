@@ -1,7 +1,7 @@
 {
   "name": "extract-i18n",
   "version": "0.0.1",
-  "description": "Script to extract and compare i18n keys in a Vue/Nuxt project",
+  "description": "Script to extract missing or duplicate i18n keys in a project",
   "bin": {
     "extract-i18n": "bin/extract-i18n.js"
   },
