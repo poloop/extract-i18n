@@ -1,6 +1,6 @@
 {
   "name": "extract-i18n",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Script to extract missing or duplicate i18n keys in a project",
   "bin": {
     "extract-i18n": "bin/extract-i18n.js"
