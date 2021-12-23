@@ -84,9 +84,10 @@ class LanguageFilesParser {
       const regExp = new RegExp(`(?<=${localeDir})(.*?)(?=/)`);
       const result = file.fileName.match(regExp);
       const lang = result ? result[0] : null;
+      console.error(localeDir, result);
 
       if (!lang) {
-        throw new Error("languageFiles should be in a language directory named with the language code.");
+        throw new Error(`languageFiles should be in a language directory named with the language code.(${i18nFileName})`);
       }
 
       const i18nFileContent = file.content;
