@@ -12,7 +12,8 @@
   "scripts": {
     "build": "rm -fr ./dist && microbundle --target node -f umd,modern",
     "dev": "microbundle watch --target node -f umd,modern",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm run build",
+    "test": "jest"
   },
   "keywords": [
     "javascript",
@@ -31,13 +32,16 @@
     "json5": "^2.2.0",
     "lodash": "^4.17.21",
     "path": "^0.12.7",
-    "terminal-kit": "2.1.6"
+    "terminal-kit": "^2.3.0"
   },
   "devDependencies": {
     "@types/dot-object": "^2.1.2",
     "@types/glob": "^7.1.4",
     "@types/is-valid-glob": "^1.0.0",
+    "@types/jest": "^27.0.2",
     "@types/node": "^16.10.2",
-    "microbundle": "^0.13.3"
+    "jest": "^27.3.1",
+    "microbundle": "^0.13.3",
+    "ts-jest": "^27.0.7"
   }
 }

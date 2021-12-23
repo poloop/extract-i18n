@@ -21,7 +21,8 @@
     },
     "types": [
       "@types/node",
-      "@types/json5"
+      "@types/json5",
+      "@types/jest"
     ]
   },
   "include": [
