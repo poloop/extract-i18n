@@ -90,8 +90,10 @@ export default class LanguageFilesParser {
 
       const lang: string|null = result ? result[0] : null
 
+      console.error(localeDir, result)
+
       if (!lang) {
-        throw new Error("languageFiles should be in a language directory named with the language code.");
+        throw new Error(`languageFiles should be in a language directory named with the language code.(${i18nFileName})`);
       }
       const i18nFileContent: I18nStructuredData = file.content
 

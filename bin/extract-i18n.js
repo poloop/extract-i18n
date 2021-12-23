@@ -22,7 +22,7 @@ const missingKeys = (languageFiles) => {
 
   const header = ['LANG', 'FILENAME', 'KEY']
 
-  term.createInlineElement(termkit.TextTable, {          // <-- how is this
+  term.createInlineElement(termkit.TextTable, {
     cellContents: [
       header,
       ...report.missingKeys.map(({lang, fileName, key}) => ([lang, fileName, key]))
@@ -38,7 +38,7 @@ const duplicateKeys = (languageFiles) => {
 
   const header = ['CONTENT', 'LANG', 'FILENAMES', 'KEYS']
 
-  term.createInlineElement(termkit.TextTable, {          // <-- how is this
+  term.createInlineElement(termkit.TextTable, {
     cellContents: [
       header,
       ...report.duplicateKeys.map(({content, lang, fileNames, keys}) => ([content, lang, fileNames.join('\n'), keys.join('\n')]))
